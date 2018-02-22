@@ -1,0 +1,158 @@
+= Parent Integration BOM and Project Dependency BOMs
+:toc:
+
+Parent and Bill Of Materials for Teiid, Teiid-Modeshape, Teiid-Komodo, etc.
+
+== Goal
+
+Align the dependencies of the projects early on in the development lifecycle so that all 3rd party dependencies are using the same version.
+
+== Overview
+
+The project-bom-parent bom will be used as the parent in the project.  It will provide the version properties so that projects align on the same 3rd party artifacts.  Each project, should have a corresponding sub project and related bom.   The project dependency bom, should be added to the dependency management section as an import
+
+
+== Building
+
+----
+$ mvn clean install
+----
+
+== Usage
+
+The BOM may be imported into your dependency management.  The following is an example using the Teiid project dependency bom:
+----
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.teiid</groupId>
+            <artifactId>teiid-bom</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+----
+
+Any dependencies should be placed in the dependency management in `teiid-bom`.
+Explicit versions should not be used; instead use a property which should be placed in `project-bom-parent`.
+
+Your project should inherit:
+
+----
+<parent>
+    <groupId>org.teiid</groupId>
+    <artifactId>project-bom-parent</artifactId>
+    <version>1.0.1-SNAPSHOT</version>
+</parent>
+----
+
+By inheriting the teiid-bom-parent:
+
+* The properties used by the BOM are visible to the project.
+
+* It inherits from the agreed upon version of org.jboss:jboss-parent:xx.
+
+* Any further plugin alignments (e.g. GWT) may be done here.
+
+== Governance
+
+Any project lead can change or release the BOM as he/she sees fit,
+provided that the following rules have been taken into account:
+
+=== Adding/changing a dependency
+
+When you want to add or change a dependency X:
+
+. When adding/changing a dependency and version property, the preferred format for the version property is `version.groupId`
+
+. Send in a pull request (PR) with the changes you propose.
+
+. All project leads will review the changes and *_acknowledge the PR in principle_*,
+which means they have the intention to accept the change.
+
+    ** A project lead will normally not actually test the changes on his project (as that's not practical):
+    So he reserves the right to submit a pull request to revert the changes later on.
+
+    ** Most projects do not depend on the BOM's +SNAPSHOT+ directly, to avoid sudden surprises.
+    Instead they depend on a released version or on a timestamped snapshot (from
+    https://repository.jboss.org/nexus/content/groups/public/org/jboss/integration-platform/jboss-integration-platform-bom/7.0.0-SNAPSHOT/[this list]).
+    They then update their BOM dependency's version frequently, after testing the impact locally.
+
+    ** ACK's are done by commenting on the PR, not on the mailing list.
+
+    ** If a project lead (or his deputy) doesn't acknowledge in reasonable time, chase him for an answer.
+
+    ** Any project lead can reject the PR if he gives a good reason.
+
+        *** On the +master+ branch, no PR can be rejected due to time concerns (deadlines, no time to review, PTO, ...)
+        because any project/product that is about to release should be using the release branch.
+
+. After all project leads have acknowledge the PR in principle, merge the changes.
+
+IMPORTANT: *EAP always wins*: The BOM targets a specific EAP version.
+If that EAP version already depends on X, then the BOM should use the same version as EAP, unless an approved override is given.
+The version properties defined in the BOM should follow pattern version.$groupId. If version.$groupId can't represent the unique version, please use version.$groupId.$artifactId.
+For jboss spec artifacts, please use version.$groupId.$artifactId because there are specification versions in $artifactId.
+For example:
+<version.org.jboss.spec.javax.servlet.jboss-servlet-api_3.0_spec>1.0.2.Final</version.org.jboss.spec.javax.servlet.jboss-servlet-api_3.0_spec>
+
+NOTE: The most recent and released version of EAP is available at: http://download.devel.redhat.com/released/JBEAP-7/.
+During development it could be of interest to test against release candidates. These can be downloaded here: http://download.devel.redhat.com/devel/candidates/JBEAP (latest version)
+
+
+
+IMPORTANT: In the public BOM, a dependency version should _never_ end with +-redhat-0+, +-redhat-1+, etc.
+The public BOM cannot depend on productization builds,
+as anyone should be able to build all its dependencies from source.
+
+NOTE: During conflicts, (all things being equal) prefer the latest and greatest version of a dependency in the BOM.
+
+=== Version numbering
+
+This BOM has it's own version numbering and release lifecycle.
+
+If you release the BOM, bump the hotfix version number.
+
+== Release procedure
+
+To mimic a release without pushing any changes:
+
+----
+$ mvn clean install
+$ mvn release:prepare -DdryRun
+$ mvn release:clean
+----
+
+To actually release:
+
+----
+$ mvn release:prepare
+$ mvn release:perform -s <path-to-settings-xml-with-nexus-deploy-credentials> # unless you have those stored in ~/.m2/settings.xml
+----
+
+Then go to https://repository.jboss.org/nexus/[Nexus] and log in.
+Find your staging repository, close it and release it.
+
+=== Version mapping
+
+This section records which project/product versions use which BOM version.
+
+* BOM 1.0.x
+
+** Projects
+
+*** Teiid 
+*** Teiid-Komodo 
+
+=== Testing
+Directory `project-bom-deps-available-test` contains simple Bash script that can be used to verify that all the dependencies
+declared in `<dependencyManagement>` are actually available (downloadable). The script uses {project-bom} to get list of all
+dependencies under `<dependencyManagement>` and then uses that list to create new POM that depends on all of them.
+Simple `dependency:resolve` Maven build is executed to make sure all dependencies are available. If there is one or more
+dependencies not available the build will fail. Following remote repositories are used: Maven Central, JBoss.org Nexus
+and Red Hat Public Product Repo (for *-redhat-X exceptions).
+
+Example:  ./run-deps-test.sh  teiid-bom
+
