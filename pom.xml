@@ -153,9 +153,9 @@
         
 	</properties>
 	<scm>
-        <connection>scm:git:git://github.com/teiid/teiid-bom.git</connection>
-        <developerConnection>scm:git:git@github.com:teiid/teiid-bom.git</developerConnection>
-        <url>http://github.com/teiid/teiid-bom</url>
+        <connection>scm:git:git://github.com/teiid/project-integration-bom.git</connection>
+        <developerConnection>scm:git:git@github.com:teiid/project-integration-bom.git</developerConnection>
+        <url>http://github.com/teiid/project-integration-bom</url>
 		<tag>HEAD</tag>
     </scm>
 	<licenses>
