@@ -114,6 +114,16 @@
 				<artifactId>simmetrics-core</artifactId>
 				<version>${version.com.github.mpkorstanje}</version>
 			</dependency>
+            <dependency>
+                <groupId>com.google.api-client</groupId>
+                <artifactId>google-api-client</artifactId>
+                <version>${version.google-api-client}</version>
+            </dependency>   
+            <dependency>
+                <groupId>com.google.apis</groupId>
+                <artifactId>google-api-services-sheets</artifactId>
+                <version>${version.google-api-services-sheets}</version>
+            </dependency>
 			<dependency>
 				<groupId>com.google.gdata</groupId>
 				<artifactId>core</artifactId>
@@ -124,6 +134,21 @@
 				<artifactId>guava</artifactId>
 				<version>${version.com.google.guava}</version>
 			</dependency>
+            <dependency>
+                <groupId>com.google.http-client</groupId>
+                <artifactId>google-http-client</artifactId>
+                <version>${version.google-api-client}</version>
+            </dependency>   
+            <dependency>
+	            <groupId>com.google.http-client</groupId>
+	            <artifactId>google-http-client-jackson2</artifactId>
+	            <version>${version.google-api-client}</version>
+	        </dependency>
+            <dependency>
+                <groupId>com.google.oauth-client</groupId>
+                <artifactId>google-oauth-client</artifactId>
+                <version>${version.google-api-client}</version>
+            </dependency>
 			<dependency>
 				<groupId>com.googlecode.json-simple</groupId>
 				<artifactId>json-simple</artifactId>
