@@ -17,7 +17,7 @@
 	<packaging>pom</packaging>
 	<name>Project Bom Parent</name>
 
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.2</version>
 	<description>Parent Pom for  Bill Of Materials for projects Teiid, Teiid-Modeshape, Teiid-Komodo, etc.</description>
     
     
@@ -156,7 +156,7 @@
         <connection>scm:git:git://github.com/teiid/project-integration-bom.git</connection>
         <developerConnection>scm:git:git@github.com:teiid/project-integration-bom.git</developerConnection>
         <url>http://github.com/teiid/project-integration-bom</url>
-		<tag>HEAD</tag>
+		<tag>project-bom-parent-1.0.2</tag>
     </scm>
 	<licenses>
 		<license>
