@@ -175,7 +175,29 @@
             <id>oss.sonatype.org</id>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
-    </distributionManagement>	
+    </distributionManagement>
+    
+    <profiles>
+      <profile>		
+        <id>final-release</id>
+        <build>
+          <plugins>
+            <plugin>
+            <artifactId>maven-gpg-plugin</artifactId>
+                <executions>
+                <execution>
+                    <id>sign-artifacts</id>
+                    <phase>verify</phase>
+                    <goals>
+                    <goal>sign</goal>
+                    </goals>
+                </execution>
+                </executions>
+            </plugin>
+          </plugins>
+        </build>
+      </profile>
+    </profiles>
         
   <build>
     <pluginManagement>
@@ -185,22 +207,18 @@
           <artifactId>gwt-maven-plugin</artifactId>
           <version>${version.com.google.gwt}</version>
         </plugin>
+        <plugin>
+			<artifactId>maven-release-plugin</artifactId>
+			<configuration>
+				<!-- During release:perform, enable the "final-release" profile -->
+				<releaseProfiles>final-release</releaseProfiles>
+				<goals>deploy</goals>
+			</configuration>
+		</plugin>
       </plugins>
     </pluginManagement>
 
     <plugins>
-      <plugin>
-        <artifactId>maven-gpg-plugin</artifactId>
-          <executions>
-            <execution>
-              <id>sign-artifacts</id>
-              <phase>verify</phase>
-              <goals>
-                <goal>sign</goal>
-              </goals>
-            </execution>
-          </executions>
-      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
