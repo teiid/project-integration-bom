@@ -1,8 +1,10 @@
 language: java
 sudo: false
+before_install:
+- cp settings.xml $HOME/.m2/settings.xml
 deploy:
   provider: script
-  script: "mvn -s settings.xml deploy -q -DskipTests=true"
+  script: "mvn deploy -q -DskipTests=true"
   skip_cleanup: true
 notifications:
   webhooks:
