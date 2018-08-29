@@ -2,7 +2,7 @@ language: java
 sudo: false
 deploy:
   provider: script
-  script: "mvn deploy -q -DskipTests=true"
+  script: "mvn -s settings.xml deploy -q -DskipTests=true"
   skip_cleanup: true
 notifications:
   webhooks:
