@@ -115,6 +115,10 @@ This BOM has it's own version numbering and release lifecycle.
 
 If you release the BOM, bump the hotfix version number.
 
+== Snapshot Builds
+
+A travis build automatically deploys snapshots.  Snapshot versions can be referenced until a Teiid release is finalizing, which then requires a full release.
+
 == Release procedure
 
 To mimic a release without pushing any changes:
