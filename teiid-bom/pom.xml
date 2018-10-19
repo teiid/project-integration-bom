@@ -158,11 +158,6 @@
 				<artifactId>annotations</artifactId>
 				<version>${version.com.google.code.findbugs}</version>
 			</dependency>
-			<dependency>
-				<groupId>com.h2database</groupId>
-				<artifactId>h2</artifactId>
-				<version>${version.com.h2database}</version>
-			</dependency>
 
 			<dependency>
 				<groupId>com.itextpdf</groupId>
@@ -191,12 +186,6 @@
 				<groupId>com.vividsolutions</groupId>
 				<artifactId>jts</artifactId>
 				<version>${version.jts}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>commons-codec</groupId>
-				<artifactId>commons-codec</artifactId>
-				<version>${version.commons-codec}</version>
 			</dependency>
 
 			<dependency>
@@ -396,18 +385,8 @@
 			</dependency>
 
 			<dependency>
-				<groupId>org.apache.commons</groupId>
-				<artifactId>commons-lang3</artifactId>
-				<version>${version.org.apache.commons}</version>
-			</dependency>
-			<dependency>
 				<groupId>org.apache.cxf</groupId>
 				<artifactId>cxf-rt-rs-client</artifactId>
-				<version>${version.org.apache.cxf}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.cxf</groupId>
-				<artifactId>cxf-rt-databinding-jaxb</artifactId>
 				<version>${version.org.apache.cxf}</version>
 			</dependency>
 			<dependency>
@@ -517,11 +496,6 @@
 			</dependency>
 
 			<dependency>
-				<groupId>org.apache.thrift</groupId>
-				<artifactId>libthrift</artifactId>
-				<version>${version.thrift}</version>
-			</dependency>
-			<dependency>
 				<groupId>org.apache.zookeeper</groupId>
 				<artifactId>zookeeper</artifactId>
 				<version>${version.zookeeper}</version>
@@ -596,11 +570,6 @@
 				<version>${version.org.eclipse.persistence}</version>
 			</dependency>
             <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-core</artifactId>
-                <version>${version.org.hibernate}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.hibernate.javax.persistence</groupId>
                 <artifactId>hibernate-jpa-2.1-api</artifactId>
                 <version>${version.org.hibernate.javax.persistence.hibernate-jpa-2.1-api}</version>
@@ -626,17 +595,6 @@
 				<artifactId>olap4j-xmla</artifactId>
 				<version>${version.olap4j}</version>
 			</dependency>
-            <dependency>
-                <groupId>org.ow2.asm</groupId>
-                <artifactId>asm</artifactId>
-                <version>${version.org.ow2.asm}</version>
-            </dependency>
-			<dependency>
-				<groupId>org.jboss.narayana.jta</groupId>
-				<artifactId>narayana-jta</artifactId>
-				<version>${version.org.jboss.narayana}</version>
-			</dependency>
-
 			<dependency>
 				<groupId>org.jboss.oreva</groupId>
 				<artifactId>odata-core</artifactId>
@@ -668,11 +626,6 @@
 				<artifactId>tjws</artifactId>
 				<version>${version.org.jboss.resteasy.tjws}</version>
 			</dependency>
-            <dependency>
-                <groupId>org.jboss.spec.javax.ws.rs</groupId>
-                <artifactId>jboss-jaxrs-api_2.1_spec</artifactId>
-                <version>${version.org.jboss.spec.javax.ws.jboss-jaxrs-api_2.1_spec}</version>
-            </dependency>
 
 			<!-- Do not add mockito-all as it is uberjar! -->
 			<dependency>
