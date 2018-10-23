@@ -8,7 +8,7 @@
     <parent>
       <groupId>org.jboss</groupId>
       <artifactId>jboss-parent</artifactId>
-      <version>24</version>
+      <version>29</version>
       <relativePath />
     </parent>  
     
@@ -17,7 +17,7 @@
 	<packaging>pom</packaging>
 	<name>Project Bom Parent</name>
 
-    <version>1.1.3-SNAPSHOT</version>
+    <version>2.0.0-SNAPSHOT</version>
 	<description>Parent Pom for  Bill Of Materials for projects Teiid, Teiid-Modeshape, Teiid-Komodo, etc.</description>
     
     
@@ -35,7 +35,7 @@
 	    <maven.compiler.target>1.8</maven.compiler.target>
 
         <!-- Teiid Version -->
-        <version.org.teiid>11.0.0-SNAPSHOT</version.org.teiid>
+        <version.org.teiid>12.0.0-SNAPSHOT</version.org.teiid>
 
 
         <derby.version>10.2.1.6</derby.version>
@@ -46,7 +46,7 @@
         <version.aws-java-sdk>1.11.0</version.aws-java-sdk>
         	    
         <!--  with wildfly parent version 2.5.4 the build is failing -->
-        <version.bundle.plugin>2.5.0</version.bundle.plugin>
+        <!--  <version.bundle.plugin>2.5.0</version.bundle.plugin> -->
         
         <version.cassandra-driver-core>3.5.1</version.cassandra-driver-core>
         <version.com.couchbase.client>2.4.2</version.com.couchbase.client>
@@ -56,15 +56,13 @@
         <version.com.force.api.34>34.0.0</version.com.force.api.34>
         <version.com.force.api.41>41.0.0</version.com.force.api.41>
         <version.com.google.code.findbugs>2.0.1</version.com.google.code.findbugs>
-        <version.com.google.guava>20.0</version.com.google.guava>
+        <version.com.google.guava>25.0-jre</version.com.google.guava>
         <version.com.googlecode.json-simple>1.1.1</version.com.googlecode.json-simple>   	
-        <version.com.h2database>1.3.152</version.com.h2database>
-        <version.commons-codec>1.10</version.commons-codec>
+        
         <version.commons-configuration>1.6</version.commons-configuration>
         <version.commons-logging>1.1</version.commons-logging>
         <version.commons-net>3.5</version.commons-net>
 
-        <version.dom4j>1.6.1</version.dom4j>
         <version.de.flapdoodle.embed.mongo>1.46.0</version.de.flapdoodle.embed.mongo>
 
         <version.gdata-core>1.47.1</version.gdata-core>
@@ -85,8 +83,7 @@
         <version.olap4j>1.1.0</version.olap4j>
 
         <version.org.apache.ant>1.8.2</version.org.apache.ant>
-        <version.org.apache.commons>3.3.2</version.org.apache.commons>
-        <version.org.apache.cxf>3.1.12</version.org.apache.cxf>
+        <version.org.apache.cxf>3.2.5-jbossorg-1</version.org.apache.cxf>
         <version.org.apache.olingo>4.5.0</version.org.apache.olingo>
         <version.org.apache.phoenix.phoenix-core>4.2.1</version.org.apache.phoenix.phoenix-core>
         <version.org.apache.poi>3.10.1</version.org.apache.poi>
@@ -98,20 +95,19 @@
         <version.org.dbunit>2.2</version.org.dbunit>
         <version.org.eclipse.jetty>9.2.7.v20150116</version.org.eclipse.jetty>
         <version.org.eclipse.persistence>2.5.0</version.org.eclipse.persistence>
-        <version.org.hibernate.search>5.5.8.Final</version.org.hibernate.search> 
-        <version.org.hibernate>5.1.10.Final</version.org.hibernate> 
-	    <version.org.jboss.narayana>5.5.30.Final</version.org.jboss.narayana>
-        <version.org.jboss.resteasy.tjws>3.0.11.Final</version.org.jboss.resteasy.tjws>        
+        <version.org.hibernate.javax.persistence.hibernate-jpa-2.1-api>1.0.2.Final</version.org.hibernate.javax.persistence.hibernate-jpa-2.1-api>
+	    <version.org.jboss.arquillian.testenricher>1.4.0.Final</version.org.jboss.arquillian.testenricher>
         <version.org.jboss.oreva>1.0.0</version.org.jboss.oreva>
         <version.org.mockito>1.10.19</version.org.mockito>
         <version.org.mongodb.mongo-java-driver>3.6.3</version.org.mongodb.mongo-java-driver>
         <version.org.reflections>0.9.9</version.org.reflections>
         <version.org.springframework>3.2.12.RELEASE</version.org.springframework>
         <version.org.springframework.asm>3.1.4.RELEASE</version.org.springframework.asm>
-        <version.org.wildfly>11.0.0.Final</version.org.wildfly>
-	    <version.org.wildfly.core>3.0.8.Final</version.org.wildfly.core>
-	    <version.org.wildfly.arquillian>2.1.0.Final</version.org.wildfly.arquillian>
-        <version.org.wildfly.build-tools>1.1.6.Final</version.org.wildfly.build-tools>
+        
+        <version.org.wildfly>14.0.1.Final</version.org.wildfly>
+	    <version.org.wildfly.core>6.0.2.Final</version.org.wildfly.core>
+	    <version.org.wildfly.arquillian>2.1.1.Final</version.org.wildfly.arquillian>
+        <version.org.wildfly.build-tools>1.2.10.Final</version.org.wildfly.build-tools>
         
         <version.net.oauth.core>20100527</version.net.oauth.core>
         <version.net.sourceforge.saxon>9.8.0-7</version.net.sourceforge.saxon>
@@ -122,10 +118,9 @@
 	    <!-- Overrides to allow the release process to commit: https://jira.codehaus.org/browse/MRELEASE-812 -->
 	    <version.release.plugin>2.5</version.release.plugin>
         <version.solr>6.4.1</version.solr>
-        <version.sun.jaxb>2.2.11.jbossorg-1</version.sun.jaxb>	    
+        <version.sun.jaxb>2.3.0</version.sun.jaxb>	    
 	    <version.swagger-parser>1.0.33</version.swagger-parser>
 
-        <version.thrift>0.9.3</version.thrift>
         <version.xerces>2.11.0</version.xerces>
         <version.xml-apis>1.4.01</version.xml-apis>
 
