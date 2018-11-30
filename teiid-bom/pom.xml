@@ -113,6 +113,12 @@
 				<artifactId>simmetrics-core</artifactId>
 				<version>${version.com.github.mpkorstanje}</version>
 			</dependency>
+			<dependency>
+                <groupId>com.github.stephenc.jcip</groupId>
+                <artifactId>jcip-annotations</artifactId>
+                <version>${version.jcip-annotations}</version>
+                <scope>test</scope>
+            </dependency>
             <dependency>
                 <groupId>com.google.api-client</groupId>
                 <artifactId>google-api-client</artifactId>
@@ -163,18 +169,6 @@
 				<groupId>com.google.code.findbugs</groupId>
 				<artifactId>annotations</artifactId>
 				<version>${version.com.google.code.findbugs}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>com.itextpdf</groupId>
-				<artifactId>itextpdf</artifactId>
-				<version>${version.com.itextpdf}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>com.opencsv</groupId>
-				<artifactId>opencsv</artifactId>
-				<version>${version.com.opencsv}</version>
 			</dependency>
 
 			<dependency>
@@ -229,12 +223,6 @@
 				<groupId>de.flapdoodle.embed</groupId>
 				<artifactId>de.flapdoodle.embed.mongo</artifactId>
 				<version>${version.de.flapdoodle.embed.mongo}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>info.debatty</groupId>
-				<artifactId>java-string-similarity</artifactId>
-				<version>${version.info.debatty}</version>
 			</dependency>
 
 			<dependency>
@@ -327,6 +315,7 @@
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
 				<version>${version.junit}</version>
+				<scope>test</scope>
 			</dependency>
 			<dependency>
 				<groupId>mysql</groupId>
@@ -344,17 +333,6 @@
 				<groupId>net.sf.saxon</groupId>
 				<artifactId>Saxon-HE</artifactId>
 				<version>${version.net.sourceforge.saxon}</version>
-			</dependency>
-			<dependency>
-				<groupId>net.sourceforge.jexcelapi</groupId>
-				<artifactId>jxl</artifactId>
-				<version>${version.net.sourceforge.jexcelapi}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>net.sourceforge.jeval</groupId>
-				<artifactId>jeval</artifactId>
-				<version>${version.net.sourceforge.jeval}</version>
 			</dependency>
 
 			<dependency>
@@ -575,6 +553,12 @@
 				<artifactId>eclipselink</artifactId>
 				<version>${version.org.eclipse.persistence}</version>
 			</dependency>
+			<dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-core</artifactId>
+                <version>${version.hamcrest}</version>
+                <scope>test</scope>
+            </dependency>
             <dependency>
                 <groupId>org.hibernate.javax.persistence</groupId>
                 <artifactId>hibernate-jpa-2.1-api</artifactId>
@@ -633,12 +617,11 @@
 				<version>${version.org.jboss.resteasy.tjws}</version>
 			</dependency>
 
-			<!-- Do not add mockito-all as it is uberjar! -->
 			<dependency>
 				<groupId>org.mockito</groupId>
-				<artifactId>mockito-all</artifactId>
-				<!--artifactId>mockito-core</artifactId -->
+				<artifactId>mockito-core</artifactId>
 				<version>${version.org.mockito}</version>
+				<scope>test</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.osgeo</groupId>
@@ -697,6 +680,12 @@
 				<groupId>org.wololo</groupId>
 				<artifactId>jts2geojson</artifactId>
 				<version>${version.jts2geojson}</version>
+				<exclusions>
+					<exclusion>
+			            <groupId>com.vividsolutions</groupId>
+			            <artifactId>jts-core</artifactId>
+			        </exclusion>
+				</exclusions>
 			</dependency>
 
 			<dependency>
