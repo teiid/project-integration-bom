@@ -1,4 +1,8 @@
-= Parent Integration BOM and Project Dependency BOMs
+# PLEASE NOTE, THIS PROJECT IS NO LONGER BEING SUPPORTED
+==========================================================
+ This project no longer supported and the project BOM is now within their respective repos (e.g, https://github.com/teiid).
+*********************************************************
+
 :toc:
 
 Parent and Bill Of Materials for Teiid, Teiid-Modeshape, Teiid-Komodo, etc.
@@ -10,7 +14,7 @@ Align the dependencies of the projects early on in the development lifecycle so 
 == Overview
 
 The project-bom-parent bom will be used as the parent in the project.  It will provide the version properties so that projects align on the same 3rd party artifacts.  Each project, should have a corresponding sub project and related bom.   The project dependency bom, should be added to the dependency management section as an import
-
+# PLEASE NOTE, THIS PROJECT IS NO LONGER BEING MAINTAINED
 
 == Building
 
